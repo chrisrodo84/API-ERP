@@ -67,9 +67,11 @@ class MarcasController extends Controller
             
             return json_encode($json, true);
         } else {
+            $marcas = Marcas::select('id_marca as id', 'producto_clave_lab as marca', 'clase_terapeutica_n4 as linea_terapeutica')->get();
+
             $json = array(
-                "status" => "400",
-                "detalle" => "Solicitud incorrecta, proporcione un id de laboratorio o de una Ov"
+                "status" => "200",
+                "detalle" => $marcas
             );
 
             return json_encode($json, true);
