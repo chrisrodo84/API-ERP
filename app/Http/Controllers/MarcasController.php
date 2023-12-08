@@ -24,17 +24,20 @@ class MarcasController extends Controller
 
                 $strMarcas = '';
                 $strLineas = '';
+                $strPresentacion = '';
                 for ($i=0; $i < count($marcas); $i++) {
-                    $resultado = Marcas::select('id_marca', 'producto_clave_lab', 'clase_terapeutica_n4')->where('id_marca', $marcas[$i])->get();
+                    $resultado = Marcas::select('id_marca', 'producto_clave_lab', 'clase_terapeutica_n4', 'presentacion_actual')->where('id_marca', $marcas[$i])->get();
                     
                     $arrMarcas = json_decode($resultado, true);
                     $strMarcas .= $arrMarcas[0]['producto_clave_lab'].', ';
                     $strLineas .= $arrMarcas[0]['clase_terapeutica_n4'].', ';
+                    $strPresentacion .= $arrMarcas[0]['presentacion_actual'].', ';
                 }
 
                 $arrMarcasOv = array(
                     "nombres_marcas" => trim($strMarcas, ', '),
-                    "lineas_terapeuticas" => trim($strLineas, ', ')
+                    "lineas_terapeuticas" => trim($strLineas, ', '),
+                    "presentacion" => trim($strPresentacion, ', ')
                 );
                 array_push($arrGralMarcasOV, $arrMarcasOv);
             }
@@ -56,7 +59,7 @@ class MarcasController extends Controller
             }
 
         } else if ($request["id_laboratorio"]) {
-            $marcas = Marcas::select('id_marca as id', 'producto_clave_lab as marca', 'clase_terapeutica_n4 as linea_terapeutica')
+            $marcas = Marcas::select('id_marca as id', 'producto_clave_lab as marca', 'clase_terapeutica_n4 as linea_terapeutica', 'presentacion_actual as presentacion')
                 ->where('id_razon_social', $request["id_laboratorio"])
             ->get();
 
@@ -67,8 +70,8 @@ class MarcasController extends Controller
             
             return json_encode($json, true);
         } else {
-            $marcas = Marcas::select('id_marca as id', 'producto_clave_lab as marca', 'clase_terapeutica_n4 as linea_terapeutica')->get();
-
+            $marcas = Marcas::select('id_marca as id', 'producto_clave_lab as marca', 'clase_terapeutica_n4 as linea_terapeutica', 'presentacion_actual as presentacion')->get();
+            
             $json = array(
                 "status" => "200",
                 "detalle" => $marcas
