@@ -66,6 +66,7 @@ class ItemsController extends Controller
                         $arrTarea = json_decode($tarea, true);
 
                         $detalle_tarea = array(
+                            "id_tarea" => $arrTarea[0]["id_tarea_area"],
                             "nombre_tarea" => $arrTarea[0]["descripcion_tarea"],
                             "horas_tarea" => intval($am[$i])
                         );
@@ -85,6 +86,7 @@ class ItemsController extends Controller
                         $arrTarea = json_decode($tarea, true);
 
                         $detalle_tarea = array(
+                            "id_tarea" => $arrTarea[0]["id_tarea_area"],
                             "nombre_tarea" => $arrTarea[0]["descripcion_tarea"],
                             "horas_tarea" => intval($au[$i])
                         );
@@ -104,6 +106,7 @@ class ItemsController extends Controller
                         $arrTarea = json_decode($tarea, true);
 
                         $detalle_tarea = array(
+                            "id_tarea" => $arrTarea[0]["id_tarea_area"],
                             "nombre_tarea" => $arrTarea[0]["descripcion_tarea"],
                             "horas_tarea" => intval($cm[$i])
                         );
@@ -123,6 +126,7 @@ class ItemsController extends Controller
                         $arrTarea = json_decode($tarea, true);
 
                         $detalle_tarea = array(
+                            "id_tarea" => $arrTarea[0]["id_tarea_area"],
                             "nombre_tarea" => $arrTarea[0]["descripcion_tarea"],
                             "horas_tarea" => intval($cr[$i])
                         );
@@ -142,6 +146,7 @@ class ItemsController extends Controller
                         $arrTarea = json_decode($tarea, true);
 
                         $detalle_tarea = array(
+                            "id_tarea" => $arrTarea[0]["id_tarea_area"],
                             "nombre_tarea" => $arrTarea[0]["descripcion_tarea"],
                             "horas_tarea" => intval($dd[$i])
                         );
@@ -161,6 +166,7 @@ class ItemsController extends Controller
                         $arrTarea = json_decode($tarea, true);
 
                         $detalle_tarea = array(
+                            "id_tarea" => $arrTarea[0]["id_tarea_area"],
                             "nombre_tarea" => $arrTarea[0]["descripcion_tarea"],
                             "horas_tarea" => intval($de[$i])
                         );
@@ -180,6 +186,7 @@ class ItemsController extends Controller
                         $arrTarea = json_decode($tarea, true);
 
                         $detalle_tarea = array(
+                            "id_tarea" => $arrTarea[0]["id_tarea_area"],
                             "nombre_tarea" => $arrTarea[0]["descripcion_tarea"],
                             "horas_tarea" => intval($ed[$i])
                         );
@@ -199,6 +206,7 @@ class ItemsController extends Controller
                         $arrTarea = json_decode($tarea, true);
 
                         $detalle_tarea = array(
+                            "id_tarea" => $arrTarea[0]["id_tarea_area"],
                             "nombre_tarea" => $arrTarea[0]["descripcion_tarea"],
                             "horas_tarea" => intval($pr[$i])
                         );
@@ -258,9 +266,7 @@ class ItemsController extends Controller
                     "programacion" => $programacion,
                 );
 
-                // Se crea el arreglo para el JSON
                 $newArrItem = array(
-                    // "total_horas_area" => $arrTotalHorasArea,
                     "id_item" => $item["id_items"],
                     "nombre_item" => $item["nombre_item"],
                     "detalle_item" => $arrHorasArea
